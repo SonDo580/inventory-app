@@ -44,7 +44,7 @@ function createItem(name, description, price, number, category, callback) {
 
     console.log(`New Item: ${item}`);
     items.push(item);
-    cb(null, item);
+    callback(null, item);
   });
 }
 
