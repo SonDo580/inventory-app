@@ -8,3 +8,7 @@ const ItemSchema = new Schema({
   price: { type: Number, required: true, min: 0 },
   number: { type: Number, required: true, min: 0 },
 });
+
+ItemSchema.virtual("url").get(function () {
+  return `/item/${this._id}`;
+});
