@@ -39,6 +39,7 @@ function createItem(name, description, price, number, category, callback) {
   item.save((error) => {
     if (error) {
       callback(error, null);
+      return;
     }
 
     console.log(`New Item: ${item}`);
