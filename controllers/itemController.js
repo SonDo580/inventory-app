@@ -14,7 +14,8 @@ exports.item_list = (req, res, next) => {
       items(callback) {
         if (categoryNeeded === undefined) {
           Item.find().exec(callback);
-          return;
+        } else {
+          Item.find({ category: categoryNeeded }).exec(callback);
         }
       },
     },
