@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  background-color: green;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: white;
+}
+
+header .logo {
+  color: lightblue;
+  font-size: 2rem;
+}
