@@ -5,14 +5,17 @@
 
 <body>
   <%- include('components/header') %>
-  <%- include('components/sidebar') %>
 
-  <div class="items">
-    <% for (const item of items) { %>
-    <a href="/item/<%= item._id %>">
-      <%- include('./components/cardItem', {item: item}) %>
-    </a>
-    <% } %>
+  <div style="display: flex;">
+    <%- include('components/sidebar') %>
+
+    <div class="items">
+      <% for (const item of items) { %>
+      <a href="/item/<%= item._id %>">
+        <%- include('./components/cardItem', {item: item}) %>
+      </a>
+      <% } %>
+    </div>
   </div>
 </body>
 
