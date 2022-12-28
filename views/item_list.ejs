@@ -10,18 +10,11 @@
   <div class="items">
     <% for (const item of items) { %>
     <li>
-      <a href="/item?category=<%= category._id %>">
-        <%= category.name %>
+      <a href="/item/<%= item._id %>">
+        <%= item.name %>
       </a>
     </li>
     <% } %>
-  </div>
-  <div>
-    <%= categories %>
-  </div>
-  <hr>
-  <div>
-    <%= items %>
   </div>
 </body>
 
