@@ -1,4 +1,7 @@
 const Item = require("../models/item");
+const Category = require("../models/category");
+
+const async = require("async");
 
 exports.item_list = (req, res) => {
   res.send("Item List");
