@@ -1,6 +1,6 @@
 <aside>
     <ul>
-        <% for (let category of categories) { %>
+        <% for (const category of categories) { %>
             <li>
                 <a href="/item?category=<%= category._id %>">
                     <%= category.name %>
