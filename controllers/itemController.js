@@ -2,6 +2,7 @@ const Item = require("../models/item");
 const Category = require("../models/category");
 
 const async = require("async");
+const category = require("../models/category");
 
 exports.item_list = (req, res, next) => {
   const categoryNeeded = req.query.category;
@@ -10,6 +11,13 @@ exports.item_list = (req, res, next) => {
     {
       categories(callback) {
         Category.find({}, "name").exec(callback);
+      },
+      category(callback) {
+        if (categoryNeeded === undefined) {
+          callback(null, "all");
+        } else {
+          Category.findById(categoryNeeded, "name").exec(callback);
+        }
       },
       items(callback) {
         if (categoryNeeded === undefined) {
@@ -28,6 +36,7 @@ exports.item_list = (req, res, next) => {
       res.render("item_list", {
         title: "Item List",
         categories: results.categories,
+        currentCategory: results.category,
         items: results.items,
       });
     }
