@@ -35,8 +35,29 @@ exports.item_list = (req, res, next) => {
   );
 };
 
-exports.item_detail = (req, res) => {
-  res.send(`Item Detail: ${req.params.id}`);
+exports.item_detail = (req, res, next) => {
+  async.parallel(
+    {
+      categories(callback) {
+        Category.find({}, "name").exec(callback);
+      },
+      item(callback) {
+        Item.findById(req.params.id).exec(callback);
+      },
+    },
+
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.render("item_detail", {
+        title: "Item Detail",
+        categories: results.categories,
+        item: results.item,
+      });
+    }
+  );
 };
 
 exports.item_create_get = (req, res) => {
