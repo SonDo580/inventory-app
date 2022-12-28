@@ -9,11 +9,9 @@
 
   <div class="items">
     <% for (const item of items) { %>
-    <li>
-      <a href="/item/<%= item._id %>">
-        <%= item.name %>
-      </a>
-    </li>
+    <a href="/item/<%= item._id %>">
+      <%- include('./components/cardItem', {item: item}) %>
+    </a>
     <% } %>
   </div>
 </body>
