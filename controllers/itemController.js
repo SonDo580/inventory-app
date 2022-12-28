@@ -12,13 +12,6 @@ exports.item_list = (req, res, next) => {
       categories(callback) {
         Category.find({}, "name").exec(callback);
       },
-      category(callback) {
-        if (categoryNeeded === undefined) {
-          callback(null, "all");
-        } else {
-          Category.findById(categoryNeeded, "name").exec(callback);
-        }
-      },
       items(callback) {
         if (categoryNeeded === undefined) {
           Item.find().exec(callback);
@@ -36,7 +29,6 @@ exports.item_list = (req, res, next) => {
       res.render("item_list", {
         title: "Item List",
         categories: results.categories,
-        currentCategory: results.category,
         items: results.items,
       });
     }
