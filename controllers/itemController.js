@@ -4,13 +4,18 @@ const Category = require("../models/category");
 const async = require("async");
 
 exports.item_list = (req, res, next) => {
+  const categoryNeeded = req.query.category;
+
   async.parallel(
     {
       categories(callback) {
         Category.find({}, "name").exec(callback);
       },
       items(callback) {
-        Item.find().exec(callback);
+        if (categoryNeeded === undefined) {
+          Item.find().exec(callback);
+          return;
+        }
       },
     },
 
