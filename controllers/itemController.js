@@ -3,8 +3,29 @@ const Category = require("../models/category");
 
 const async = require("async");
 
-exports.item_list = (req, res) => {
-  res.send("Item List");
+exports.item_list = (req, res, next) => {
+  async.parallel(
+    {
+      categories(callback) {
+        Category.find({}, "name").exec(callback);
+      },
+      items(callback) {
+        Item.find().exec(callback);
+      },
+    },
+
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.render("item_list", {
+        title: "Item List",
+        categories: results.categories,
+        items: results.items,
+      });
+    }
+  );
 };
 
 exports.item_detail = (req, res) => {
