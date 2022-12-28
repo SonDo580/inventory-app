@@ -26,3 +26,28 @@ header .logo {
   color: lightblue;
   font-size: 2rem;
 }
+
+/* SIDEBAR */
+aside {
+  width: 20%;
+  min-height: 100vh;
+  background-color: cadetblue;
+}
+
+aside ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+aside a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+aside a:hover {
+  color: yellow;
+  background-color: black;
+}
