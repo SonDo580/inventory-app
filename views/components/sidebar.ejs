@@ -1,0 +1,11 @@
+<aside>
+    <ul>
+        <% for (let category of categories) { %>
+            <li>
+                <a href="/item?category=<%= category._id %>">
+                    <%= category.name %>
+                </a>
+            </li>
+            <% } %>
+    </ul>
+</aside>
