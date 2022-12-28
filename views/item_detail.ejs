@@ -9,9 +9,21 @@
     <div style="display: flex;">
         <%- include('components/sidebar') %>
 
-        <main>
-            <%= item %>
-        </main>
+        <div class="item-detail">
+            <div style="display: flex;">
+                <div class="img">
+                    <img src="/images/rubik.jpg" style="width: 300px; aspect-ratio: 1 / 1;" alt="rubik">
+                </div>
+                <div class="text">
+                    <h1><%= item.name %> </h1>
+                    <p>Description: <em><%= item.description %></em></p>
+                    <p>Price: <strong>$<%= item.price %></strong></p>
+                    <p>Number in stocks: <strong><%= item.number %></strong></p>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
