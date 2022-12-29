@@ -73,9 +73,23 @@ exports.item_create_get = (req, res, next) => {
   });
 };
 
-exports.item_create_post = (req, res) => {
-  res.send("Create Item POST");
-};
+exports.item_create_post = [
+  // Validate and sanitize input
+  body("name", "Name must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("description", "Description must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("category", "Category must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("price", "Price must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("number", "Number-in-stock must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+];
 
 exports.item_update_get = (req, res) => {
   res.send("Update Item GET");
