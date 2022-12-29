@@ -184,9 +184,67 @@ exports.item_update_get = (req, res, next) => {
   );
 };
 
-exports.item_update_post = (req, res) => {
-  res.send("Update Item POST");
-};
+exports.item_update_post = [
+  // Validate and sanitize input
+  body("name", "Name must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("description", "Description must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("category", "Category must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("price", "Price must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("number")
+    .trim()
+    .isLength({ min: 1 })
+    .escape()
+    .withMessage("Number-in-stock must not be empty")
+    .isInt()
+    .withMessage("Number-in-stock must be an integer"),
+
+  // Process request
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    // Create new item with sanitized input
+    const item = new Item({
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      price: req.body.price,
+      number: req.body.number,
+    });
+
+    // Render the form again if there are errors
+    if (!errors.isEmpty()) {
+      Category.find({}, "name").exec((err, result) => {
+        if (err) {
+          return next(err);
+        }
+
+        res.render("item_form", {
+          title: "Create Item",
+          categories: result,
+          item: item,
+          errors: errors.array(),
+        });
+      });
+      return;
+    }
+
+    // Save item if data is valid
+    item.save((err) => {
+      if (err) {
+        return next(err);
+      }
+
+      // Redirect to item detail page
+      res.redirect(item.url);
+    });
+  },
+];
 
 exports.item_delete_post = (req, res) => {
   res.send("Delete Item POST");
