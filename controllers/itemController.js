@@ -101,6 +101,23 @@ exports.item_create_post = [
       price: req.body.price,
       number: req.body.number,
     });
+
+    // Render the form again if there are errors
+    if (!errors.isEmpty()) {
+      Category.find({}, "name").exec((err, result) => {
+        if (err) {
+          return next(err);
+        }
+
+        res.render("item_form", {
+          title: "Create Item",
+          categories: result,
+          item: item,
+          errors: errors.array(),
+        });
+      });
+      return;
+    }
   },
 ];
 
