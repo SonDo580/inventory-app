@@ -38,6 +38,17 @@
                 <label>Number in stock</label>
                 <input type="number" name="number" min="0" required>
             </div>
+            <div class="errors">
+                <% if (errors) {%>
+                <ul>
+                    <% for (const error of errors) { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } %>
+            </div>
             <hr>
             <button>Create</button>
         </form>
