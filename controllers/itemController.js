@@ -69,6 +69,8 @@ exports.item_create_get = (req, res, next) => {
     res.render("item_form", {
       title: "Create Item",
       categories: result,
+      item: undefined,
+      errors: undefined,
     });
   });
 };
