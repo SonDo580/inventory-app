@@ -94,6 +94,7 @@ exports.item_create_post = [
   (req, res, next) => {
     const errors = validationResult(req);
 
+    // Create new item with sanitized input
     const item = new Item({
       name: req.body.name,
       description: req.body.description,
