@@ -12,6 +12,9 @@ exports.item_list = (req, res, next) => {
       categories(callback) {
         Category.find({}, "name").exec(callback);
       },
+      category(callback) {
+        Category.findById(categoryNeeded).exec(callback);
+      },
       items(callback) {
         if (categoryNeeded === undefined) {
           Item.find().exec(callback);
@@ -23,6 +26,12 @@ exports.item_list = (req, res, next) => {
 
     (err, results) => {
       if (err) {
+        return next(err);
+      }
+
+      if (results.category === null) {
+        const err = new Error("Category not found");
+        err.status = 404;
         return next(err);
       }
 
