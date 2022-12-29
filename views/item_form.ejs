@@ -9,8 +9,6 @@
     <div style="display: flex;">
         <%- include('components/sidebar') %>
 
-        <%= item %>
-
         <form action="" method="POST">
             <h1>Create Item</h1>
             <hr>
@@ -27,10 +25,17 @@
                 <label>Category</label>
                 <select name="category" required>
                     <% for (const category of categories) { %>
-                    <% let isSelected = category._id.toString() === item.category.toString() ? true : false %>
-                    <option value=<%= category._id %> selected=<%= isSelected %>>
+                    <% if (item === undefined) {%>
+                    <option value=<%= category._id %>>
                         <%= category.name %>
                     </option>
+
+                    <% } else { %>
+                    <option value=<%= category._id %>
+                        <%= category._id.toString() === item.category.toString() ? 'selected' : '' %>>
+                        <%= category.name %>
+                    </option>
+                    <% } %>
                     <% } %>
                 </select>
             </div>
@@ -44,7 +49,7 @@
                 <input type="number" name="number" min="0" required value=<%= item === undefined ? '' : item.number %>>
             </div>
             <div class="errors">
-                <% if (errors) {%>
+                <% if (errors !== undefined) {%>
                 <ul>
                     <% for (const error of errors) { %>
                     <li>
