@@ -51,6 +51,12 @@ exports.item_detail = (req, res, next) => {
         return next(err);
       }
 
+      if (results.item === null) {
+        const err = new Error("Item not found");
+        err.status = 404;
+        return next(err);
+      }
+
       res.render("item_detail", {
         title: "Item Detail",
         categories: results.categories,
