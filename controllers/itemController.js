@@ -145,10 +145,6 @@ exports.item_update_post = (req, res) => {
   res.send("Update Item POST");
 };
 
-exports.item_delete_get = (req, res) => {
-  res.send("Delete item GET");
-};
-
 exports.item_delete_post = (req, res) => {
   res.send("Delete Item POST");
 };
