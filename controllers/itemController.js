@@ -60,8 +60,17 @@ exports.item_detail = (req, res, next) => {
   );
 };
 
-exports.item_create_get = (req, res) => {
-  res.send("Create Item GET");
+exports.item_create_get = (req, res, next) => {
+  Category.find({}, "name").exec((err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.render("item_form", {
+      title: "Create Item",
+      categories: result,
+    });
+  });
 };
 
 exports.item_create_post = (req, res) => {
