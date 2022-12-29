@@ -19,8 +19,14 @@
                     <p>Description: <em><%= item.description %></em></p>
                     <p>Price: <strong>$<%= item.price %></strong></p>
                     <p>Number in stocks: <strong><%= item.number %></strong></p>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <hr>
+
+                    <div style="display: flex;">
+                        <a href=<%= item.url + '/update' %>>Edit</a>
+                        <form action=<%= item.url + '/delete' %>>
+                            <button>Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
