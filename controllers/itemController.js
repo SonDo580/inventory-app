@@ -2,7 +2,7 @@ const Item = require("../models/item");
 const Category = require("../models/category");
 
 const async = require("async");
-const category = require("../models/category");
+const { body, validationResult } = require("express-validator");
 
 exports.item_list = (req, res, next) => {
   const categoryNeeded = req.query.category;
