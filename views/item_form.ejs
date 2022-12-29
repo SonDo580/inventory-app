@@ -26,7 +26,8 @@
                 <label>Category</label>
                 <select name="category" required>
                     <% for (const category of categories) { %>
-                    <option value=<%= category._id %>>
+                    <% let isSelected = category._id.toString() === item.category.toString() ? true : false %>
+                    <option value=<%= category._id %> selected=<%= isSelected %>>
                         <%= category.name %>
                     </option>
                     <% } %>
