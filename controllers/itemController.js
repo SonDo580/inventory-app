@@ -89,6 +89,19 @@ exports.item_create_post = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
+
+  // Process request
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    const item = new Item({
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      price: req.body.price,
+      number: req.body.number,
+    });
+  },
 ];
 
 exports.item_update_get = (req, res) => {
