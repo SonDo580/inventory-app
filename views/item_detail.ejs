@@ -23,7 +23,8 @@
 
                     <div style="display: flex;">
                         <a href=<%= item.url + '/update' %>>Edit</a>
-                        <form action=<%= item.url + '/delete' %> method="POST">
+                        <form method="POST" action=<%= item.url + '/delete' %>
+                            onsubmit="return confirm('You really want to delete this item?')">
                             <button>Delete</button>
                         </form>
                     </div>
