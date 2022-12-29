@@ -226,7 +226,7 @@ exports.item_update_post = [
         }
 
         res.render("item_form", {
-          title: "Create Item",
+          title: "Update Item",
           categories: result,
           item: item,
           errors: errors.array(),
