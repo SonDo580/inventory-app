@@ -137,8 +137,36 @@ exports.item_create_post = [
   },
 ];
 
-exports.item_update_get = (req, res) => {
-  res.send("Update Item GET");
+exports.item_update_get = (req, res, next) => {
+  async.parallel(
+    {
+      categories(callback) {
+        Category.find({}, "name").exec(callback);
+      },
+      item(callback) {
+        Item.findById(req.params.id).exec(callback);
+      },
+    },
+
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+
+      if (results.item === null) {
+        const err = new Error("Item not found");
+        err.status = 404;
+        return next(err);
+      }
+
+      res.render("item_form", {
+        title: "Update Item",
+        categories: results.categories,
+        item: results.item,
+        errors: undefined,
+      });
+    }
+  );
 };
 
 exports.item_update_post = (req, res) => {
