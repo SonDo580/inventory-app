@@ -13,7 +13,11 @@ exports.item_list = (req, res, next) => {
         Category.find({}, "name").exec(callback);
       },
       category(callback) {
-        Category.findById(categoryNeeded).exec(callback);
+        if (categoryNeeded === undefined) {
+          callback(null, "all");
+        } else {
+          Category.findById(categoryNeeded).exec(callback);
+        }
       },
       items(callback) {
         if (categoryNeeded === undefined) {
