@@ -87,10 +87,13 @@ exports.item_create_post = [
     .isLength({ min: 1 })
     .escape(),
   body("price", "Price must not be empty").trim().isLength({ min: 1 }).escape(),
-  body("number", "Number-in-stock must not be empty")
+  body("number")
     .trim()
     .isLength({ min: 1 })
-    .escape(),
+    .escape()
+    .withMessage("Number-in-stock must not be empty")
+    .isInt()
+    .withMessage("Number-in-stock must be an integer"),
 
   // Process request
   (req, res, next) => {
