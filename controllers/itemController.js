@@ -118,6 +118,16 @@ exports.item_create_post = [
       });
       return;
     }
+
+    // Save item if data is valid
+    item.save((err) => {
+      if (err) {
+        return next(err);
+      }
+
+      // Redirect to item detail page
+      res.redirect(item.url);
+    });
   },
 ];
 
