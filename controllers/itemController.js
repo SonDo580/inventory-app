@@ -235,14 +235,14 @@ exports.item_update_post = [
       return;
     }
 
-    // Save item if data is valid
-    item.save((err) => {
+    // Update item if data is valid
+    Item.findByIdAndUpdate(req.params.id, item, {}, (err, updatedItem) => {
       if (err) {
         return next(err);
       }
 
       // Redirect to item detail page
-      res.redirect(item.url);
+      res.redirect(updatedItem.url);
     });
   },
 ];
