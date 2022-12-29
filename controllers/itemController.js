@@ -215,6 +215,7 @@ exports.item_update_post = [
       category: req.body.category,
       price: req.body.price,
       number: req.body.number,
+      _id: req.params.id,
     });
 
     // Render the form again if there are errors
