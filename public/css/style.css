@@ -4,6 +4,8 @@ body {
 
 /* BUTTON */
 .btn {
+  display: inline-block;
+  text-decoration: none;
   padding: 8px 15px;
   border: none;
   border-radius: 5px;
@@ -22,6 +24,14 @@ body {
 
 .btn-primary:hover {
   background-color: blue;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.btn-danger:hover {
+  background-color: darkred;
 }
 
 /* HEADER */
@@ -145,4 +155,18 @@ aside a:hover {
   height: 30px;
   border: 1px solid blue;
   background-color: white;
+}
+
+/* ITEM DETAILS */
+.item-detail {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.item-detail .text {
+  flex-grow: 1;
+}
+
+.item-detail .text p {
+  font-size: 1.1rem;
 }

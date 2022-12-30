@@ -10,7 +10,7 @@
         <%- include('components/sidebar') %>
 
         <div class="item-detail">
-            <div style="display: flex;">
+            <div style="display: flex; gap: 20px;">
                 <div class="img">
                     <img src="/images/rubik.jpg" style="width: 300px; aspect-ratio: 1 / 1;" alt="rubik">
                 </div>
@@ -21,11 +21,11 @@
                     <p>Number in stocks: <strong><%= item.number %></strong></p>
                     <hr>
 
-                    <div style="display: flex;">
-                        <a href=<%= item.url + '/update' %>>Edit</a>
+                    <div style="display: flex; gap: 5px">
+                        <a class="btn btn-primary" href=<%= item.url + '/update' %>>Edit</a>
                         <form method="POST" action=<%= item.url + '/delete' %>
                             onsubmit="return confirm('You really want to delete this item?')">
-                            <button>Delete</button>
+                            <button class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </div>
