@@ -13,10 +13,6 @@ exports.category_list = (req, res, next) => {
   });
 };
 
-exports.category_detail = (req, res) => {
-  res.send(`Category Detail: ${req.params.id}`);
-};
-
 exports.category_create_get = (req, res) => {
   res.send("Create Category GET");
 };
