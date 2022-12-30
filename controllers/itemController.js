@@ -14,7 +14,7 @@ exports.item_list = (req, res, next) => {
       },
       category(callback) {
         if (categoryNeeded === undefined) {
-          callback(null, "all");
+          callback(null, { name: "ALL" });
         } else {
           Category.findById(categoryNeeded).exec(callback);
         }
@@ -43,6 +43,7 @@ exports.item_list = (req, res, next) => {
         title: "Item List",
         categories: results.categories,
         items: results.items,
+        currentCategory: results.category.name,
       });
     }
   );
