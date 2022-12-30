@@ -1,6 +1,9 @@
 const Category = require("../models/category");
+const Item = require("../models/item");
 
 const { body, validationResult } = require("express-validator");
+const { default: mongoose } = require("mongoose");
+const async = require("async");
 
 exports.category_list = (req, res, next) => {
   Category.find((err, result) => {
@@ -123,6 +126,24 @@ exports.category_update_post = [
   },
 ];
 
-exports.category_delete_post = (req, res) => {
-  res.send("Delete Category POST");
+exports.category_delete_post = (req, res, next) => {
+  async.series(
+    [
+      function (callback) {
+        Item.deleteMany({
+          category: mongoose.Types.ObjectId(req.params.id),
+        }).exec(callback);
+      },
+      function (callback) {
+        Category.findByIdAndRemove(req.params.id).exec(callback);
+      },
+    ],
+    (err) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.redirect("/category");
+    }
+  );
 };
