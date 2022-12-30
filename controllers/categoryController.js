@@ -1,7 +1,16 @@
 const Category = require("../models/category");
 
-exports.category_list = (req, res) => {
-  res.send("Category List");
+exports.category_list = (req, res, next) => {
+  Category.find((err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.render("category_list", {
+      title: "Category List",
+      categories: result,
+    });
+  });
 };
 
 exports.category_detail = (req, res) => {
