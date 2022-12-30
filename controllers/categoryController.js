@@ -63,8 +63,18 @@ exports.category_create_post = [
   },
 ];
 
-exports.category_update_get = (req, res) => {
-  res.send("Update Category GET");
+exports.category_update_get = (req, res, next) => {
+  Category.findById(req.params.id, (err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.render("category_form", {
+      title: "Update Category",
+      category: result,
+      errors: undefined,
+    });
+  });
 };
 
 exports.category_update_post = (req, res) => {
