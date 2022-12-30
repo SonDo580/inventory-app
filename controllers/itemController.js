@@ -56,7 +56,7 @@ exports.item_detail = (req, res, next) => {
         Category.find({}, "name").exec(callback);
       },
       item(callback) {
-        Item.findById(req.params.id).exec(callback);
+        Item.findById(req.params.id).populate("category").exec(callback);
       },
     },
 
