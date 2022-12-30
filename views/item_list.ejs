@@ -9,12 +9,19 @@
   <div style="display: flex;">
     <%- include('components/sidebar') %>
 
-    <div class="items">
-      <% for (const item of items) { %>
-      <a href="/item/<%= item._id %>">
-        <%- include('./components/cardItem', {item: item}) %>
-      </a>
-      <% } %>
+    <div style="flex-grow: 1;">
+      <h1 style="margin: 0; margin-top: 10px; padding: 0 30px;">
+        <%= currentCategory %>
+      </h1>
+      <hr>
+
+      <div class="items">
+        <% for (const item of items) { %>
+        <a href="/item/<%= item._id %>">
+          <%- include('./components/cardItem', {item: item}) %>
+        </a>
+        <% } %>
+      </div>
     </div>
   </div>
 </body>
