@@ -17,6 +17,7 @@ exports.category_create_get = (req, res) => {
   res.render("category_form", {
     title: "Create Category",
     category: undefined,
+    errors: undefined,
   });
 };
 
