@@ -12,12 +12,24 @@
             <thead>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </thead>
             <tbody>
                 <% for (const category of categories) { %>
                 <tr>
                     <td><%= category.name %></td>
                     <td><%= category.description %></td>
+                    <td>
+                        <a class="btn btn-primary" href=<%= category.url + '/update' %>>
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href=<%= category.url + '/delete' %>>
+                            Delete
+                        </a>
+                    </td>
                 </tr>
                 </a>
                 <% } %>
