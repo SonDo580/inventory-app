@@ -25,9 +25,10 @@
                         </a>
                     </td>
                     <td>
-                        <a class="btn btn-danger" href=<%= category.url + '/delete' %>>
-                            Delete
-                        </a>
+                        <form method="POST" action=<%= category.url + '/delete' %>
+                            onsubmit="return confirm('You really want to delete this category?\nAll items in this category will also be deleted')">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 </a>
