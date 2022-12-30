@@ -82,3 +82,45 @@ aside a:hover {
   color: blueviolet;
   font-weight: bold;
 }
+
+/* MAIN FORM */
+#mainForm {
+  padding: 20px;
+  width: 100%;
+}
+
+#mainForm h1 {
+  margin: 0;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: flex-start;
+  gap: 20px;
+  width: 75%;
+  margin: 0 auto 10px;
+}
+
+.form-group label {
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-group input {
+  height: 25px;
+  border: 1px solid blue;
+  padding: 2px 5px;
+}
+
+.form-group textarea {
+  resize: none;
+  border: 1px solid blue;
+  padding: 5px;
+}
+
+.form-group select {
+  height: 30px;
+  border: 1px solid blue;
+  background-color: white;
+}
