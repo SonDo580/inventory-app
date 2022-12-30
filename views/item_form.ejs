@@ -14,9 +14,10 @@
             <hr>
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" maxlength="50" required value=<%= item === undefined ? '' : item.name %>>
+                <input type="text" name="name" maxlength="50" required
+                    value="<%= item === undefined ? '' : item.name %>">
             </div>
-            <div class="form-group">
+            <div class=" form-group">
                 <label>Description</label>
                 <textarea name="description" cols="30" rows="10"
                     required><%= item === undefined ? '' : item.description %></textarea>
