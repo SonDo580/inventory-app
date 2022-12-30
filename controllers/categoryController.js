@@ -123,10 +123,6 @@ exports.category_update_post = [
   },
 ];
 
-exports.category_delete_get = (req, res) => {
-  res.send("Delete Category GET");
-};
-
 exports.category_delete_post = (req, res) => {
   res.send("Delete Category POST");
 };
