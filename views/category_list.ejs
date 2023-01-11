@@ -25,10 +25,14 @@
                         </a>
                     </td>
                     <td>
-                        <form method="POST" action=<%= category.url + '/delete' %>
-                            onsubmit="return confirm('You really want to delete this category?\nAll items in this category will also be deleted')">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
+                        <button class="btn btn-danger" id="deleteButton">Delete</button>
+                        <div class="wrapper">
+                            <form method="POST" id="deleteForm" action=<%= category.url + '/delete' %>>
+                                <p>Enter password for deleting item</p>
+                                <input type="text" name="adminPass" required>
+                                <button class="btn btn-danger">Send</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 </a>
