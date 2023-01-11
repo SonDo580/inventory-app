@@ -127,6 +127,10 @@ exports.category_update_post = [
 ];
 
 exports.category_delete_post = (req, res, next) => {
+  if (req.body.adminPass !== process.env.ADMIN_PASS) {
+    return res.redirect("/category");
+  }
+
   async.series(
     [
       function (callback) {
