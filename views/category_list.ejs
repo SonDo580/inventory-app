@@ -44,7 +44,24 @@
         </form>
     </div>
 
+    <script>
+        const deleteButtons = document.querySelectorAll('button[data-function]=delete');
+        const deleteForm = document.getElementById('deleteForm');
+        const formWrapper = deleteForm.parentElement;
 
+        for (const button of deleteButtons) {
+            button.onclick = () => {
+                formWrapper.style.display = 'block';
+            }
+        }
+
+        formWrapper.onclick = (event) => {
+            if (deleteForm.contains(event.target)) {
+                return;
+            }
+            formWrapper.style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
