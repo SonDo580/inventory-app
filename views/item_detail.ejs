@@ -24,15 +24,23 @@
 
                     <div style="display: flex; gap: 5px">
                         <a class="btn btn-primary" href=<%= item.url + '/update' %>>Edit</a>
-                        <form method="POST" action=<%= item.url + '/delete' %>
-                            onsubmit="return confirm('You really want to delete this item?')">
-                            <button class="btn btn-danger">Delete</button>
+
+                        <button class="btn btn-danger" id="deleteButton">Delete</button>
+                        <form method="POST" id="deleteForm" action=<%= item.url + '/delete' %>>
+                            <p>Enter password for deleting item</p>
+                            <input type="text" name="adminPass">
+                            <button class="btn btn-danger">Send</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const deleteButton = document.getElementById('deleteButton');
+        const deleteForm = document.getElementById('deleteForm');
+    </script>
 </body>
 
 </html>
