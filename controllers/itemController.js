@@ -253,6 +253,10 @@ exports.item_update_post = [
 ];
 
 exports.item_delete_post = (req, res, next) => {
+  if (req.body.adminPass !== process.env.ADMIN_PASS) {
+    return res.redirect(`/item/${req.params.id}`);
+  }
+
   Item.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       return next(err);
