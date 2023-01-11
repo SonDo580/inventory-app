@@ -170,38 +170,6 @@ aside a:hover {
   font-size: 1.1rem;
 }
 
-.item-detail .wrapper {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-}
-
-.item-detail #deleteForm {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-.item-detail #deleteForm p {
-  margin-top: 0;
-}
-
-.item-detail #deleteForm input {
-  height: 25px;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 2px 5px;
-  margin-right: 10px;
-}
-
 /* CATEGORY LIST */
 table {
   border-collapse: collapse;
@@ -228,4 +196,37 @@ table tr:nth-child(odd) {
 
 table tr td:nth-child(2) {
   width: 50%;
+}
+
+/* DELETE FORM */
+.wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+#deleteForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+#deleteForm p {
+  margin-top: 0;
+}
+
+#deleteForm input {
+  height: 25px;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 2px 5px;
+  margin-right: 10px;
 }
