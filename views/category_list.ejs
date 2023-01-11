@@ -25,7 +25,9 @@
                         </a>
                     </td>
                     <td>
-                        <button class="btn btn-danger" id="deleteButton">Delete</button>
+                        <button class="btn btn-danger" data-function="delete" data-id=<%= category._id %>>
+                            Delete
+                        </button>
                         <div class="wrapper">
                             <form method="POST" id="deleteForm" action=<%= category.url + '/delete' %>>
                                 <p>Enter password for deleting item</p>
