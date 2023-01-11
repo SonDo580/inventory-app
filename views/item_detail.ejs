@@ -42,6 +42,18 @@
     <script>
         const deleteButton = document.getElementById('deleteButton');
         const deleteForm = document.getElementById('deleteForm');
+        const formWrapper = deleteForm.parentElement;
+
+        deleteButton.onclick = () => {
+            formWrapper.style.display = 'block';
+        }
+
+        formWrapper.onclick = (event) => {
+            if (deleteForm.contains(event.target)) {
+                return;
+            }
+            formWrapper.style.display = 'none';
+        }
     </script>
 </body>
 
