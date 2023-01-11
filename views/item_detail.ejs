@@ -26,11 +26,13 @@
                         <a class="btn btn-primary" href=<%= item.url + '/update' %>>Edit</a>
 
                         <button class="btn btn-danger" id="deleteButton">Delete</button>
-                        <form method="POST" id="deleteForm" action=<%= item.url + '/delete' %>>
-                            <p>Enter password for deleting item</p>
-                            <input type="text" name="adminPass">
-                            <button class="btn btn-danger">Send</button>
-                        </form>
+                        <div class="wrapper">
+                            <form method="POST" id="deleteForm" action=<%= item.url + '/delete' %>>
+                                <p>Enter password for deleting item</p>
+                                <input type="text" name="adminPass">
+                                <button class="btn btn-danger">Send</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
