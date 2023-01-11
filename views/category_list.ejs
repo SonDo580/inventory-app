@@ -28,13 +28,6 @@
                         <button class="btn btn-danger" data-function="delete" data-id=<%= category._id %>>
                             Delete
                         </button>
-                        <div class="wrapper">
-                            <form method="POST" id="deleteForm" action=<%= category.url + '/delete' %>>
-                                <p>Enter password for deleting item</p>
-                                <input type="text" name="adminPass" required>
-                                <button class="btn btn-danger">Send</button>
-                            </form>
-                        </div>
                     </td>
                 </tr>
                 </a>
@@ -42,6 +35,16 @@
             </tbody>
         </table>
     </div>
+
+    <div class="wrapper">
+        <form method="POST" id="deleteForm" action=<%= category.url + '/delete' %>>
+            <p>Enter password for deleting category</p>
+            <input type="text" name="adminPass" required>
+            <button class="btn btn-danger">Send</button>
+        </form>
+    </div>
+
+
 </body>
 
 </html>
