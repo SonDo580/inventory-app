@@ -37,7 +37,7 @@
     </div>
 
     <div class="wrapper">
-        <form method="POST" id="deleteForm" action=<%= category.url + '/delete' %>>
+        <form method="POST" id="deleteForm">
             <p>Enter password for deleting category</p>
             <input type="text" name="adminPass" required>
             <button class="btn btn-danger">Send</button>
@@ -45,12 +45,15 @@
     </div>
 
     <script>
-        const deleteButtons = document.querySelectorAll('button[data-function]=delete');
+        const deleteButtons = document.querySelectorAll("button[data-function=delete]");
         const deleteForm = document.getElementById('deleteForm');
         const formWrapper = deleteForm.parentElement;
 
+        console.log(deleteButtons)
+
         for (const button of deleteButtons) {
-            button.onclick = () => {
+            button.onclick = (event) => {
+                console.log(event.target);
                 formWrapper.style.display = 'block';
             }
         }
@@ -59,6 +62,7 @@
             if (deleteForm.contains(event.target)) {
                 return;
             }
+
             formWrapper.style.display = 'none';
         }
     </script>
