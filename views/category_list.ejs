@@ -49,11 +49,10 @@
         const deleteForm = document.getElementById('deleteForm');
         const formWrapper = deleteForm.parentElement;
 
-        console.log(deleteButtons)
-
         for (const button of deleteButtons) {
             button.onclick = (event) => {
-                console.log(event.target);
+                const deleteID = event.target.getAttribute('data-id');
+                deleteForm.action = `category/${deleteID}/delete`;
                 formWrapper.style.display = 'block';
             }
         }
