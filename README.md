@@ -20,3 +20,8 @@ An inventory management app for a toys store
 - MongoDB and Mongoose
 - ExpressJS
 - EJS as template engine
+
+# Todos
+
+- Let user choose product images
+- Save images to database
